@@ -489,23 +489,24 @@
 		}
 		
 		this.parseXmlString = function(xmlDocStr) {
-			var isIEParser = window.ActiveXObject || "ActiveXObject" in window;
+			//var isIEParser = window.ActiveXObject || "ActiveXObject" in window;
 			if (xmlDocStr === undefined) {
 				return null;
 			}
 			var xmlDoc;
-			if (window.DOMParser) {
-				var parser=new window.DOMParser();			
+			console.log(global.parser);
+			if (global.parser) {
+				var parser=global.parser;			
 				var parsererrorNS = null;
 				// IE9+ now is here
-				if(!isIEParser) {
-					try {
-						parsererrorNS = parser.parseFromString("INVALID", "text/xml").getElementsByTagName("parsererror")[0].namespaceURI;
-					}
-					catch(err) {					
-						parsererrorNS = null;
-					}
-				}
+				// if(!isIEParser) {
+				// 	try {
+				// 		parsererrorNS = parser.parseFromString("INVALID", "text/xml").getElementsByTagName("parsererror")[0].namespaceURI;
+				// 	}
+				// 	catch(err) {					
+				// 		parsererrorNS = null;
+				// 	}
+				// }
 				try {
 					xmlDoc = parser.parseFromString( xmlDocStr, "text/xml" );
 					if( parsererrorNS!= null && xmlDoc.getElementsByTagNameNS(parsererrorNS, "parsererror").length > 0) {
