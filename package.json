@@ -9,5 +9,8 @@
     ".project",
     "*.html",
     "**/*.txt"
-  ]
+  ],
+  "devDependencies": {
+    "dom-parser": "^0.1.5"
+  }
 }
