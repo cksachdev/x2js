@@ -12,6 +12,7 @@
   ],
   "devDependencies": {
     "fs-extra": "^7.0.1",
+    "jsdom": "^13.1.0",
     "xmldom": "^0.1.27"
   }
 }

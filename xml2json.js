@@ -15,7 +15,9 @@
  limitations under the License.
  */
 
-var DOMParser = require('xmldom').DOMParser;
+var jsdom = require("jsdom")
+var { JSDOM } = jsdom
+global.DOMParser = new JSDOM().window.DOMParser
 
 module.exports = function X2JS(config) {
 	'use strict';
